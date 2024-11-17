@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { API } from './constants';
 import { fetchGates } from './utils/fetchGates';
 import { GateStorage } from './utils/storage';
 
@@ -24,11 +23,6 @@ export function GateProvider({ pubKey, children }: GateProviderProps) {
 
   useEffect(() => {
     intiGates();
-    const sse = initializeSSE();
-
-    return () => {
-      sse.close();
-    };
   }, [pubKey]);
 
   const intiGates = async () => {
@@ -54,19 +48,6 @@ export function GateProvider({ pubKey, children }: GateProviderProps) {
     );
 
     setInitialized(true);
-  };
-
-  const initializeSSE = () => {
-    const sse = new EventSource(`${API}/events?subscriber=${pubKey}`);
-
-    sse.onmessage = (event) => {
-      const updatedKnob = JSON.parse(event.data);
-      console.log(updatedKnob);
-
-      // todo: update the knob value
-    };
-
-    return sse;
   };
 
   return (

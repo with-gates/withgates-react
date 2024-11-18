@@ -3,11 +3,16 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
-import { useKnob } from '@withgates/react';
+import { KnobGuard, useGateInitialized, useKnob } from '@withgates/react';
 
 function App() {
   const [count, setCount] = useState(0);
-  const isEnabled = useKnob('new_feature_v2');
+  const isEnabled = useKnob('new_flag');
+  const isInitialized = useGateInitialized();
+
+  if (!isInitialized) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>
@@ -21,10 +26,13 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <KnobGuard knobKey="new_flag" fallback={<p>Feature is disabled</p>}>
+          <button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </button>
+        </KnobGuard>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

@@ -1,9 +1,29 @@
 {
-  "name": "@withgates/react",
-  "version": "1.0.0",
+  "name": "@withgates/react-web",
+  "version": "1.0.0-alpha.1",
+  "description": "React utilities for WithGates",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "license": "MIT",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/with-gates/withgates-react.git"
+  },
+  "keywords": [
+    "react",
+    "withgates",
+    "web",
+    "feature-flags",
+    "ab-testing"
+  ],
+  "author": "WithGates",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",

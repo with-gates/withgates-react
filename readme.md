@@ -1,17 +1,17 @@
-# @withgates/react
+# @withgates/react-web
 
 A lightweight React library for managing feature flags and toggles in your applications.
 
 ## Installation
 
 ```bash
-npm install @withgates/react
+npm install @withgates/react-web
 ```
 
 or 
 
 ```bash
-yarn add @withgates/react
+yarn add @withgates/react-web
 ```
 
 
@@ -28,7 +28,7 @@ yarn add @withgates/react
  Wrap your application with the `GateProvider`:
 
 ```tsx
-import { GateProvider } from '@withgates/react';
+import { GateProvider } from '@withgates/react-web';
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
 Knobs are basic kill-switches that allow you to quickly toggle features on and off. They provide a simple boolean value that can be used to control feature visibility.
 
 ```tsx
-import { useKnob } from '@withgates/react';
+import { useKnob } from '@withgates/react-web';
 
 function FeatureComponent() {
   const isEnabled = useKnob('feature-key');
@@ -64,7 +64,7 @@ function FeatureComponent() {
 You can also use the `KnobGuard` component for declarative control:
 
 ```tsx
-import { KnobGuard } from '@withgates/react';
+import { KnobGuard } from '@withgates/react-web';
 
 function App() {
   return (

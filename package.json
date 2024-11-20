@@ -1,6 +1,6 @@
 {
   "name": "@withgates/react-web",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "React utilities for WithGates",
   "main": "dist/index.js",
   "types": "types/index.d.ts",

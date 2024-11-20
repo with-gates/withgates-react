@@ -3,7 +3,7 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
-import { KnobGuard, useGateInitialized, useKnob } from '@withgates/react';
+import { KnobGuard, useGateInitialized, useKnob } from '@withgates/react-web';
 
 function App() {
   const [count, setCount] = useState(0);

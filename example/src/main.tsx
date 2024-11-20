@@ -6,7 +6,7 @@ import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <GateProvider pubKey="pub_dev_ce7124ca43a4452aad55b4d067e1c1b6">
+    <GateProvider pubKey="YOUR_PUBLIC_KEY">
       <App />
     </GateProvider>
   </StrictMode>

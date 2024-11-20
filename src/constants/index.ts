@@ -1,1 +1,1 @@
-export const API = 'http://localhost:3000/sdk';
+export const API = 'https://with-gates.fly.dev/sdk';

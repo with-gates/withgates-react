@@ -662,13 +662,9 @@
     "@types/babel__core" "^7.20.5"
     react-refresh "^0.14.2"
 
-"@withgates/react-web@*":
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@withgates/react-web/-/react-web-1.0.0-alpha.1.tgz#71579bbb5f5bc0671f09cf1cf07e8d5824677acd"
-  integrity sha512-tm7/C0vvdu4GHuqowr4tCzSJkigia2CZxDaUlgbjtaTlzwXrh88AIWljAeZZtTlcjrCCTbVsrvS8pE6XJpMN/w==
-  dependencies:
-    idb "^8.0.0"
-    react "^18.3.1"
+"@withgates/react-web@link:..":
+  version "0.0.0"
+  uid ""
 
 acorn-jsx@^5.3.2:
   version "5.3.2"

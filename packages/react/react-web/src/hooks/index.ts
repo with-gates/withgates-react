@@ -1,2 +1,2 @@
-export { useGateInitialized } from './useGateInitialized';
+export { useExperiment } from './useExperiment';
 export { useKnob } from './useKnob';

@@ -24,9 +24,13 @@ export class GateStorage {
     });
   }
 
-  static async saveGates(storeName: string, gates: Record<string, any>) {
+  static async saveGates(storeName: string, gates?: Record<string, boolean>) {
     if (!STORES.includes(storeName)) {
       throw new Error(`Invalid store name: ${storeName}`);
+    }
+
+    if (!gates) {
+      return;
     }
 
     const db = await openDB(DB_NAME, DB_VERSION);

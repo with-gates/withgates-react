@@ -1,0 +1,46 @@
+{
+  "name": "@withgates/core-js",
+  "version": "1.0.0",
+  "description": "Core shared utilities for WithGates",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "types/index.d.ts",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/with-gates/withgates-js.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/with-gates/withgates-js/tree/main/packages/core",
+  "author": "WithGates",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "watch": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,json,md}\"",
+    "publish": "npm run build && npm publish --access public"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.2.0",
+    "prettier-plugin-organize-imports": "^3.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.6.3"
+  }
+}

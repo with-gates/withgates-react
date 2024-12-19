@@ -1,4 +1,4 @@
-export const API = "http://localhost:3000"; // "https://with-gates.fly.dev/sdk";
+export const API = "https://with-gates.fly.dev";
 
 /**
  * Configuration options for Gates instance

@@ -1,17 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
-import { KnobGuard, useGateInitialized, useKnob } from '@withgates/react-web';
+import { KnobGuard, useKnob } from '@withgates/react-web';
+import { gates } from './main';
 
 function App() {
   const [count, setCount] = useState(0);
-  const isEnabled = useKnob('new_flag');
-  const isInitialized = useGateInitialized();
+  const [isInitialized, setIsInitialized] = useState(false);
+  const isEnabled = useKnob('feature-flag-1');
+
+  useEffect(() => {
+    init();
+  }, []);
+
+  const init = async () => {
+    await gates.init();
+    await gates.signInUser('00000-22222');
+    await gates.sync();
+    await gates.setUserAttributes({
+      custom: {
+        email: 'test@test.com',
+        name: 'test',
+      },
+    });
+
+    setIsInitialized(true);
+  };
 
   if (!isInitialized) {
-    return <p>Loading...</p>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -28,7 +47,7 @@ function App() {
       <h1>Vite + React</h1>
 
       <div className="card">
-        <KnobGuard knobKey="new_flag" fallback={<p>Feature is disabled</p>}>
+        <KnobGuard value="feature-flag-2" fallback={<p>Feature is disabled</p>}>
           <button onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </button>

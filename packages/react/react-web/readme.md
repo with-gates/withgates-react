@@ -25,14 +25,22 @@ yarn add @withgates/react-web
 
 ## Quick Start
 
- Wrap your application with the `GateProvider`:
+First, create a Gates instance with your configuration:
+
+```tsx
+import Gates from '@withgates/react-web';
+
+const gates = new Gates('your-public-key', {});
+```
+
+Then wrap your application with the `GateProvider`:
 
 ```tsx
 import { GateProvider } from '@withgates/react-web';
 
 function App() {
   return (
-    <GateProvider pubKey="your-public-key">
+    <GateProvider gates={gates}>
       <YourApp />
     </GateProvider>
   );
